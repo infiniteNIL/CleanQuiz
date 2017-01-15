@@ -12,6 +12,7 @@
 		DC35941C1E19AEA900B66D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC35941B1E19AEA900B66D5D /* Assets.xcassets */; };
 		DC35941F1E19AEA900B66D5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC35941D1E19AEA900B66D5D /* LaunchScreen.storyboard */; };
 		DC35942A1E19AEA900B66D5D /* CleanQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3594291E19AEA900B66D5D /* CleanQuizTests.swift */; };
+		DC77A8481E2AFE840010E034 /* FlashCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC77A8471E2AFE840010E034 /* FlashCardStore.swift */; };
 		DC943ACA1E19CC1E00F40A6E /* DisplayFlashCardConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC943AC31E19CC1E00F40A6E /* DisplayFlashCardConfigurator.swift */; };
 		DC943ACB1E19CC1E00F40A6E /* DisplayFlashCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC943AC41E19CC1E00F40A6E /* DisplayFlashCardInteractor.swift */; };
 		DC943ACC1E19CC1E00F40A6E /* DisplayFlashCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC943AC51E19CC1E00F40A6E /* DisplayFlashCardModels.swift */; };
@@ -43,6 +44,7 @@
 		DC3594251E19AEA900B66D5D /* CleanQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3594291E19AEA900B66D5D /* CleanQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanQuizTests.swift; sourceTree = "<group>"; };
 		DC35942B1E19AEA900B66D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC77A8471E2AFE840010E034 /* FlashCardStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlashCardStore.swift; path = Services/FlashCardStore.swift; sourceTree = "<group>"; };
 		DC943AC31E19CC1E00F40A6E /* DisplayFlashCardConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayFlashCardConfigurator.swift; path = Scenes/DisplayFlashCard/DisplayFlashCardConfigurator.swift; sourceTree = "<group>"; };
 		DC943AC41E19CC1E00F40A6E /* DisplayFlashCardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayFlashCardInteractor.swift; path = Scenes/DisplayFlashCard/DisplayFlashCardInteractor.swift; sourceTree = "<group>"; };
 		DC943AC51E19CC1E00F40A6E /* DisplayFlashCardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayFlashCardModels.swift; path = Scenes/DisplayFlashCard/DisplayFlashCardModels.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		DC943AD31E19FA7000F40A6E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DC77A8471E2AFE840010E034 /* FlashCardStore.swift */,
 				DC943AD41E19FA9B00F40A6E /* FlashCardsMemStore.swift */,
 			);
 			name = Services;
@@ -263,6 +266,7 @@
 				DC943AD21E19EA6900F40A6E /* FlashCard.swift in Sources */,
 				DC943AD51E19FA9B00F40A6E /* FlashCardsMemStore.swift in Sources */,
 				DC943ACF1E19CC1E00F40A6E /* DisplayFlashCardViewController.swift in Sources */,
+				DC77A8481E2AFE840010E034 /* FlashCardStore.swift in Sources */,
 				DC943ACD1E19CC1E00F40A6E /* DisplayFlashCardPresenter.swift in Sources */,
 				DC3594151E19AEA900B66D5D /* AppDelegate.swift in Sources */,
 				DC943ACE1E19CC1E00F40A6E /* DisplayFlashCardRouter.swift in Sources */,
@@ -406,8 +410,10 @@
 				DEVELOPMENT_TEAM = MB9RW2WD7P;
 				INFOPLIST_FILE = CleanQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = com.infinitenil.CleanQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;

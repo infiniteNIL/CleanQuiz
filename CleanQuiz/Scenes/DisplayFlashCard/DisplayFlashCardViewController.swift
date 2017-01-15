@@ -51,7 +51,7 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
 
     // MARK: - Event handling
 
-    func fetchFlashCardOnLoad()
+    private func fetchFlashCardOnLoad()
     {
         // NOTE: Ask the Interactor to do some work
 

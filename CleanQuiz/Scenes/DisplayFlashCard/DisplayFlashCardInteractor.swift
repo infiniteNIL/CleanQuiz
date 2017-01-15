@@ -33,15 +33,13 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
             if flashCards.count > 0 {
                 cardIndex = 0
             }
+            else {
+                cardIndex = nil
+            }
         }
     }
     private var cardIndex: Int?
 
-    var currentCard: FlashCard?
-    {
-        guard let index = cardIndex else { return nil }
-        return flashCards[index]
-    }
 
     // MARK: - Business logic
 

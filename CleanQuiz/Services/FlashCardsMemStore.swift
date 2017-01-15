@@ -21,8 +21,11 @@ class FlashCardsMemStore: FlashCardsStore
                   answer: "Montpelier"),
     ]
 
-    func fetchFlashCards(completionHandler: (FlashCardsStoreResult) -> Void)
+    func fetchFlashCards(completionHandler: @escaping (FlashCardsStoreResult) -> Void)
     {
-        completionHandler(.cards(flashCards))
+        DispatchQueue.global().async {
+            completionHandler(.cards(self.flashCards))
+//            completionHandler(.error(.unknownError))
+        }
     }
 }

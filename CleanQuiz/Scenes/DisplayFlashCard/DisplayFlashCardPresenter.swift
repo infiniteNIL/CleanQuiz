@@ -20,6 +20,7 @@ protocol DisplayFlashCardPresenterInput
 protocol DisplayFlashCardPresenterOutput: class
 {
     func displayFlashCard(viewModel: DisplayFlashCard.ViewModel)
+    func displayError(title: String, message: String)
 }
 
 class DisplayFlashCardPresenter: DisplayFlashCardPresenterInput
@@ -41,5 +42,17 @@ class DisplayFlashCardPresenter: DisplayFlashCardPresenterInput
 
     func presentError(_ error: FlashCardsStoreError)
     {
+        let viewModel = DisplayFlashCard.ViewModel(questionText: "",
+                                                   answerText: "",
+                                                   nextQuestionEnabled: false,
+                                                   revealAnswerEnabled: false)
+        output.displayFlashCard(viewModel: viewModel)
+
+        switch error {
+            case .unknownError:
+                output.displayError(title: NSLocalizedString("Unknown Error", comment: "title for unknown error"),
+                                    message: NSLocalizedString("An unknown error has occurred.",
+                                                               comment: "Message for unknown error"))
+        }
     }
 }

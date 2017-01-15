@@ -14,6 +14,7 @@ import UIKit
 protocol DisplayFlashCardViewControllerInput
 {
     func displayFlashCard(viewModel: DisplayFlashCard.ViewModel)
+    func displayError(title: String, message: String)
 }
 
 protocol DisplayFlashCardViewControllerOutput
@@ -71,6 +72,13 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
         answerLabel.text = viewModel.answerText
         revealAnswerButton.isEnabled = viewModel.revealAnswerEnabled
     }
+
+    func displayError(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK button title in error alert"),
+                                      style: .default))
+        present(alert, animated: true)
     }
 
     @IBAction func nextQuestion()

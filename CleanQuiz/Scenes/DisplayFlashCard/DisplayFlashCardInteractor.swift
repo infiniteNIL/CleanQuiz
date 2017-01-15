@@ -48,15 +48,19 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
         // NOTE: Create some Worker to do the work
 
         worker.fetchFlashCards { (result: FlashCardsStoreResult) in
-            switch result {
-                case .cards(let cards):
-                    flashCards = cards
-                    guard let card = currentCard else { return }
-                    let response = DisplayFlashCard.Response.FetchFlashCard(card: hideAnswer(card: card))
-                    output.presentFlashCard(response: response)
+            DispatchQueue.main.async {
+                switch result {
+                    case .cards(let cards):
+                        self.flashCards = cards
+                        guard let card = self.currentCard else { return }
+                        let response = DisplayFlashCard.Response.FetchFlashCard(card: self.hideAnswer(card: card),
+                                                                                isLastCard: self.onLastCard(),
+                                                                                isAnswerHidden: true)
+                        self.output.presentFlashCard(response: response)
 
-                case .error(let error):
-                    output.presentError(error)
+                    case .error(let error):
+                        self.output.presentError(error)
+                }
             }
         }
     }
@@ -84,5 +88,22 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
                                                                 isAnswerHidden: false)
         output.presentFlashCard(response: response)
     }
+
+    private var currentCard: FlashCard?
+    {
+        guard let index = cardIndex, index < flashCards.count else { return nil }
+        return flashCards[index]
     }
+
+    private func nextCard() -> FlashCard? {
+        guard let index = cardIndex, index + 1 < flashCards.count else { return nil }
+        cardIndex = index + 1
+        return currentCard
+    }
+
+    private func onLastCard() -> Bool {
+        guard let index = cardIndex else { return true }
+        return index == flashCards.count - 1
+    }
+    
 }

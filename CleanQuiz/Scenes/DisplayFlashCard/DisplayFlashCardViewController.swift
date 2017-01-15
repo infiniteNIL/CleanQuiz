@@ -29,7 +29,9 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
     var router: DisplayFlashCardRouter!
 
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var nextQuestionButton: UIButton!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var revealAnswerButton: UIButton!
 
     // MARK: - Object lifecycle
 

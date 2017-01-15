@@ -62,7 +62,9 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="wBb-4e-8Fk" id="x7p-l9-cjE"/>
+                        <outlet property="nextQuestionButton" destination="HUn-89-4vI" id="0Xk-iY-pLv"/>
                         <outlet property="questionLabel" destination="jbz-0f-3he" id="lYW-kT-Xpx"/>
+                        <outlet property="revealAnswerButton" destination="jme-gd-vjZ" id="ctZ-cK-IHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

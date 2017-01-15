@@ -13,7 +13,8 @@ import UIKit
 
 protocol DisplayFlashCardInteractorInput
 {
-    func fetchFlashCard(request: DisplayFlashCard.Request.FetchFlashCard)
+    func fetchFlashCards(request: DisplayFlashCard.Request.FetchFlashCards)
+    func fetchNextFlashCard(request: DisplayFlashCard.Request.FetchNextFlashCard)
 }
 
 protocol DisplayFlashCardInteractorOutput
@@ -44,7 +45,7 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
 
     // MARK: - Business logic
 
-    func fetchFlashCard(request: DisplayFlashCard.Request.FetchFlashCard)
+    func fetchFlashCards(request: DisplayFlashCard.Request.FetchFlashCards)
     {
         // NOTE: Create some Worker to do the work
 
@@ -68,7 +69,7 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
         return FlashCard(question: card.question, answer: "???")
     }
 
-    func displayNextFlashCard(request: DisplayFlashCard.Request.DisplayNextFlashCard)
+    func fetchNextFlashCard(request: DisplayFlashCard.Request.FetchNextFlashCard)
     {
     }
 

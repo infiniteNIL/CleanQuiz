@@ -18,8 +18,8 @@ protocol DisplayFlashCardViewControllerInput
 
 protocol DisplayFlashCardViewControllerOutput
 {
-    func fetchFlashCard(request: DisplayFlashCard.Request.FetchFlashCard)
-    func displayNextFlashCard(request: DisplayFlashCard.Request.DisplayNextFlashCard)
+    func fetchFlashCards(request: DisplayFlashCard.Request.FetchFlashCards)
+    func fetchNextFlashCard(request: DisplayFlashCard.Request.FetchNextFlashCard)
     func revealAnswer(request: DisplayFlashCard.Request.RevealAnswer)
 }
 
@@ -55,8 +55,8 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
     {
         // NOTE: Ask the Interactor to do some work
 
-        let request = DisplayFlashCard.Request.FetchFlashCard()
-        output.fetchFlashCard(request: request)
+        let request = DisplayFlashCard.Request.FetchFlashCards()
+        output.fetchFlashCards(request: request)
     }
 
     // MARK: - Display logic

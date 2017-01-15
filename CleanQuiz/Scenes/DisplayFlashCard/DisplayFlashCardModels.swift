@@ -15,11 +15,11 @@ struct DisplayFlashCard
 {
     struct Request
     {
-        struct FetchFlashCard
+        struct FetchFlashCards
         {
         }
 
-        struct DisplayNextFlashCard
+        struct FetchNextFlashCard
         {
         }
 

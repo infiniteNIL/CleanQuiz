@@ -41,5 +41,7 @@ struct DisplayFlashCard
     {
         let questionText: String
         let answerText: String
+        let nextQuestionEnabled: Bool
+        let revealAnswerEnabled: Bool
     }
 }

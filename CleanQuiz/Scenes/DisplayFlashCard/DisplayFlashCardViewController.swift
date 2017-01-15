@@ -66,7 +66,11 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
         // NOTE: Display the result from the Presenter
         
         questionLabel.text = viewModel.questionText
+        nextQuestionButton.isEnabled = viewModel.nextQuestionEnabled
+
         answerLabel.text = viewModel.answerText
+        revealAnswerButton.isEnabled = viewModel.revealAnswerEnabled
+    }
     }
 
     @IBAction func nextQuestion()

@@ -33,7 +33,9 @@ class DisplayFlashCardPresenter: DisplayFlashCardPresenterInput
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
 
         let viewModel = DisplayFlashCard.ViewModel(questionText: response.card.question,
-                                                   answerText: response.card.answer)
+                                                   answerText: response.card.answer,
+                                                   nextQuestionEnabled: !response.isLastCard,
+                                                   revealAnswerEnabled: response.isAnswerHidden)
         output.displayFlashCard(viewModel: viewModel)
     }
 

@@ -30,34 +30,3 @@ class DisplayFlashCardWorker
     }
 }
 
-// MARK: - Flash Cards store API
-
-enum FlashCardsStoreResult
-{
-    case cards([FlashCard])
-    case error(FlashCardsStoreError)
-}
-
-// MARK: - Orders store CRUD operation errors
-
-enum FlashCardsStoreError: Equatable, Error
-{
-    case CannotFetch(String)
-}
-
-func ==(lhs: FlashCardsStoreError, rhs: FlashCardsStoreError) -> Bool
-{
-    switch (lhs, rhs) {
-        case (.CannotFetch(let a), .CannotFetch(let b)) where a == b:
-            return true
-
-        default:
-            return false
-    }
-}
-
-
-protocol FlashCardsStore
-{
-    func fetchFlashCards(completionHandler: (FlashCardsStoreResult) -> Void)
-}

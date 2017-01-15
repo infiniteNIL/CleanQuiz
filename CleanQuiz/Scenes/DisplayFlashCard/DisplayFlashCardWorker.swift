@@ -22,7 +22,7 @@ class DisplayFlashCardWorker
         self.store = cardsStore
     }
 
-    func fetchFlashCards(completionHandler: (FlashCardsStoreResult) -> Void)
+    func fetchFlashCards(completionHandler: @escaping (FlashCardsStoreResult) -> Void)
     {
         store.fetchFlashCards { (result: FlashCardsStoreResult) in
             completionHandler(result)

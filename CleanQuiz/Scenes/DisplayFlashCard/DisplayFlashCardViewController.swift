@@ -71,8 +71,8 @@ class DisplayFlashCardViewController: UIViewController, DisplayFlashCardViewCont
 
     @IBAction func nextQuestion()
     {
-        let request = DisplayFlashCard.Request.DisplayNextFlashCard()
-        output.displayNextFlashCard(request: request)
+        let request = DisplayFlashCard.Request.FetchNextFlashCard()
+        output.fetchNextFlashCard(request: request)
     }
 
     @IBAction func revealAnswer()

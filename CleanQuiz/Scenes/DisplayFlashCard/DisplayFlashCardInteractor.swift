@@ -71,9 +71,20 @@ class DisplayFlashCardInteractor: DisplayFlashCardInteractorInput
 
     func fetchNextFlashCard(request: DisplayFlashCard.Request.FetchNextFlashCard)
     {
+        guard let card = nextCard() else { return }
+        let response = DisplayFlashCard.Response.FetchFlashCard(card: hideAnswer(card: card),
+                                                                isLastCard: onLastCard(),
+                                                                isAnswerHidden: true)
+        output.presentFlashCard(response: response)
     }
 
     func revealAnswer(request: DisplayFlashCard.Request.RevealAnswer)
     {
+        guard let card = currentCard else { return }
+        let response = DisplayFlashCard.Response.FetchFlashCard(card: card,
+                                                                isLastCard: onLastCard(),
+                                                                isAnswerHidden: false)
+        output.presentFlashCard(response: response)
+    }
     }
 }

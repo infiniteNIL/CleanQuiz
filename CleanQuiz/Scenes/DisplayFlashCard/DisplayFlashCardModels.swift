@@ -34,6 +34,8 @@ struct DisplayFlashCard
         struct FetchFlashCard
         {
             let card: FlashCard
+            let isLastCard: Bool
+            let isAnswerHidden: Bool
         }
     }
 
